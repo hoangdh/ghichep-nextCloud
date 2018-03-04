@@ -75,7 +75,7 @@ yum update -y
 	- Khởi động lại Apache
 	
 	```sh
-	systemctl start httpd.service
+	systemctl restart httpd.service
 	```
 
 - **Bước 3**: Cài đặt MariaDB
@@ -92,13 +92,6 @@ yum update -y
 	systemctl start mariadb
 	systemctl enable mariadb
 	```
-
-	- Cấu hình MariaDB
-	
-	```
-	
-	```
-- **Bước 4**: Cấu hình
 
 <a name="22" />
 
