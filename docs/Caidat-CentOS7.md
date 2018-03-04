@@ -97,14 +97,14 @@ yum update -y
 
 #### 2.2 Cấu hình MariaDB
 
-	```sh
-	mysql -uroot -e "set password for 'root'@'localhost' = password('$PASSWORD');"
-	mysql -uroot -p$PASSWORD -e "DROP DATABASE test;"
-	mysql -uroot -p$PASSWORD -e "DELETE from mysql.user where Password = '';"
-	mysql -uroot -p$PASSWORD -e "CREATE USER 'root'@'%' IDENTIFIED BY '$PASSWORD';"
-	mysql -uroot -p$PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';"
-	mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
-	```
+```sh
+mysql -uroot -e "set password for 'root'@'localhost' = password('$PASSWORD');"
+mysql -uroot -p$PASSWORD -e "DROP DATABASE test;"
+mysql -uroot -p$PASSWORD -e "DELETE from mysql.user where Password = '';"
+mysql -uroot -p$PASSWORD -e "CREATE USER 'root'@'%' IDENTIFIED BY '$PASSWORD';"
+mysql -uroot -p$PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';"
+mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
+```
 
 	**Chú ý**: Thay thế password của `root` mà bạn muốn đặt vào `$PASSWORD`.
 
@@ -112,52 +112,52 @@ yum update -y
 
 #### 2.3 Tạo User và Database cho NextCloud
 
-	```sh
-	mysql -uroot -p$PASSWORD -e "CREATE DATABASE nextcloud;"
-	mysql -uroot -p$PASSWORD -e ""GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost' IDENTIFIED BY 'PASSWORD_OC';
-	mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
-	```
+```sh
+mysql -uroot -p$PASSWORD -e "CREATE DATABASE nextcloud;"
+mysql -uroot -p$PASSWORD -e ""GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost' IDENTIFIED BY 'PASSWORD_OC';
+mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
+```
 
-	**Chú ý**: 
-	- Thay thế password của `root` vào `$PASSWORD`.
-	- Thay thế password của `nextcloud` mà bạn muốn đặt vào `PASSWORD_OC`
-	
+**Chú ý**: 
+- Thay thế password của `root` vào `$PASSWORD`.
+- Thay thế password của `nextcloud` mà bạn muốn đặt vào `PASSWORD_OC`
+
 <a name="24" />
 
 #### 2.4 Tải và giải nén NextCloud
 
 Trong bài viết này, chúng tôi sẽ hướng dẫn các bạn cài bản NextCloud version 13 (mới nhất trong thời điểm viết bài).
 
-	- Tải NextCloud
-	
-	```sh
-	cd /opt/
-	wget https://download.nextcloud.com/server/releases/nextcloud-13.0.0.zip
-	```
+- Tải NextCloud
 
-	- Giải nén NextCloud
-	
-	```sh
-	cd /opt/
-	unzip nextcloud-13.0.0.zip
-	```
-	
-	- Chuyển thư mục và phân quyền cho thư mục
-	
-	```
-	cd /opt/
-	mv nextcloud/* /var/www/html/
-	chmod 755 -R /var/www/html/
-	chown apache. -R /var/www/html/
-	```
-			
+```sh
+cd /opt/
+wget https://download.nextcloud.com/server/releases/nextcloud-13.0.0.zip
+```
+
+- Giải nén NextCloud
+
+```sh
+cd /opt/
+unzip nextcloud-13.0.0.zip
+```
+
+- Chuyển thư mục và phân quyền cho thư mục
+
+```
+cd /opt/
+mv nextcloud/* /var/www/html/
+chmod 755 -R /var/www/html/
+chown apache. -R /var/www/html/
+```
+		
 <a name="25" />
 
 #### 2.5 Cấu hình NextCloud
 
-	- Truy cập vào địa chỉ IP bằng trình duyệt
-	
-	*Đang cập nhật...*
+- Truy cập vào địa chỉ IP bằng trình duyệt
+
+*Đang cập nhật...*
 
 <a name="3" />
 
