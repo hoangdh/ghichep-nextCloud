@@ -106,7 +106,7 @@ mysql -uroot -p$PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';"
 mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 ```
 
-	**Chú ý**: Thay thế password của `root` mà bạn muốn đặt vào `$PASSWORD`.
+**Chú ý**: Thay thế password của `root` mà bạn muốn đặt vào `$PASSWORD`.
 
 <a name="23" />
 
@@ -118,9 +118,9 @@ mysql -uroot -p$PASSWORD -e ""GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloudu
 mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 ```
 
-**Chú ý**: 
-- Thay thế password của `root` vào `$PASSWORD`.
-- Thay thế password của `nextcloud` mà bạn muốn đặt vào `PASSWORD_OC`
+- **Chú ý**: 
+	- Thay thế password của `root` vào `$PASSWORD`.
+	- Thay thế password của `nextcloud` mà bạn muốn đặt vào `PASSWORD_OC`
 
 <a name="24" />
 
