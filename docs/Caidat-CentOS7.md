@@ -14,6 +14,15 @@
 
 [NextCloud](https://nextcloud.com) là một giải pháp lưu trữ dữ liệu giống như Dropbox, Google Drive hay OneDrive,... Bài viết này sẽ hướng dẫn các bạn cài đặt NextCloud trên CentOS 7.
 
+| Thông tin máy chủ | |
+|--|--|
+| OS | CentOS 7 |
+| CPU | 1 |
+| RAM | 2 GB |
+| IP Address | 192.168.100.192/24 |
+| Gateway | 192.168.100.1 |
+
+
 <a name="2" />
 
 ### 2. Các bước tiến hành
@@ -97,6 +106,8 @@ yum update -y
 
 #### 2.2 Cấu hình MariaDB
 
+Tại đây, chúng ta sẽ đặt mật khẩu cho user `root` của MariaDB và xóa database có tên là `test`.
+
 ```sh
 mysql -uroot -e "set password for 'root'@'localhost' = password('$PASSWORD');"
 mysql -uroot -p$PASSWORD -e "DROP DATABASE test;"
@@ -120,7 +131,7 @@ mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 
 - **Chú ý**: 
 	- Thay thế password của `root` vào `$PASSWORD`.
-	- Thay thế password của `nextcloud` mà bạn muốn đặt vào `PASSWORD_OC`
+	- Thay thế password của `nextclouduser` mà bạn muốn đặt vào `PASSWORD_OC`
 
 <a name="24" />
 
@@ -128,21 +139,21 @@ mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 
 Trong bài viết này, chúng tôi sẽ hướng dẫn các bạn cài bản NextCloud version 13 (mới nhất trong thời điểm viết bài).
 
-- Tải NextCloud
+- **Bước 1**: Tải NextCloud
 
 ```sh
 cd /opt/
 wget https://download.nextcloud.com/server/releases/nextcloud-13.0.0.zip
 ```
 
-- Giải nén NextCloud
+- **Bước 2**: Giải nén NextCloud
 
 ```sh
 cd /opt/
 unzip nextcloud-13.0.0.zip
 ```
 
-- Chuyển thư mục và phân quyền cho thư mục
+- **Bước 3**: Chuyển thư mục và phân quyền cho thư mục
 
 ```
 cd /opt/
