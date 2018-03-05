@@ -166,11 +166,30 @@ chown apache. -R /var/www/html/
 
 #### 2.5 Cấu hình NextCloud
 
-- Truy cập vào địa chỉ IP bằng trình duyệt
+- **Bước 1**: Truy cập vào địa chỉ IP bằng trình duyệt
 
-*Đang cập nhật...*
+	<img src="/images/nc-1.png" />
+	
+	- `1`: Khai báo thông tin user quản trị
+	- `2`: Khai báo thông tin thư mục lưu trữ dữ liệu. Chú ý: Phân quyền cho user `apache` sở hữu thư mục này. 
+		
+	
+- **Bước 2**:
+
+	<img src="/images/nc-2.png" />
+	
+	- `1`: Chọn kiểu DATABASE là `MySQL/MariaDB`
+	- `2`: Khai báo thông tin về DATABASE mà chúng ta tạo ở bước [trên](#23).
+	- `3`: Hoàn tất việc cài đặt
+
+- **Bước 3**: Sau khi cài đặt xong, giao diện của NextCloud sẽ xuất hiện
+
+	<img src="/images/nc-3.png" />
 
 <a name="3" />
 
-### 3. Kiểm tra
+### 3. Tham khảo
+
+- https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7
+- https://www.marksei.com/install-nextcloud-12-centos-7/
 
