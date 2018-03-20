@@ -174,7 +174,7 @@ chown apache. -R /var/www/html/
 	- `2`: Khai báo thông tin thư mục lưu trữ dữ liệu. Chú ý: Phân quyền cho user `apache` sở hữu thư mục này. 
 		
 	
-- **Bước 2**:
+- **Bước 2**: Khai báo thông tin DATABASE
 
 	<img src="/images/nc-2.png" />
 	
