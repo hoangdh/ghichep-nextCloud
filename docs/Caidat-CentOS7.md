@@ -125,7 +125,7 @@ mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 
 ```sh
 mysql -uroot -p$PASSWORD -e "CREATE DATABASE nextcloud;"
-mysql -uroot -p$PASSWORD -e ""GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost' IDENTIFIED BY 'PASSWORD_OC';
+mysql -uroot -p$PASSWORD -e "GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextclouduser'@'localhost' IDENTIFIED BY 'PASSWORD_OC';"
 mysql -uroot -p$PASSWORD -e "FLUSH PRIVILEGES;"
 ```
 
