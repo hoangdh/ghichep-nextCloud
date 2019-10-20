@@ -1,0 +1,45 @@
+version: '2'
+services:
+  onlyoffice:
+    image: onlyoffice/documentserver
+    ports:
+      - 8443:8443
+    volumes:
+      - ./ssl/onlyoffice.crt:/app/onlyoffice/DocumentServer/data/certs/onlyoffice.crt
+      - ./ssl/onlyoffice.key:/app/onlyoffice/DocumentServer/data/certs/onlyoffice.key
+      - ./nginx/ds.conf:/etc/onlyoffice/documentserver/nginx/ds.conf.tmpl
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD==Ahihi@
+      - MYSQL_PASSWORD==Ahihi@
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+  app:
+    image: nextcloud:fpm
+    links:
+      - db
+      - onlyoffice
+    volumes:
+      - ./nextcloud:/var/www/html
+    restart: always
+  web:
+    image: nginx
+    ports:
+      - 80:80
+      - 80:80
+      - 443:443
+    links:
+      - app
+      - onlyoffice
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl/onlyoffice.crt:/etc/nginx/certs/onlyoffice.crt
+      - ./ssl/onlyoffice.key:/etc/nginx/certs/onlyoffice.key
+    volumes_from:
+      - app
+    restart: always
